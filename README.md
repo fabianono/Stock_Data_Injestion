@@ -1,5 +1,7 @@
-# Stock Data
-### Basic stock data for the top 10 stocks in the US stock market by market cap
+# Stock Data Injestion
+### Basic stock data injestion for the top 10 stocks in the US stock market by market cap
+
+**Just a note that this current project is running as a free tiered subscription to Google Cloud. Access will end on June 2 2025, so if the code is still working, it will stop working when the free tier access end.**
 
 In this project:
 1. Data is obtained via a GET request from the TIME_SERIES_INTRADAY api which can be found [here](https://www.alphavantage.co/documentation/). 
