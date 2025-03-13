@@ -1,0 +1,9 @@
+logs
+.env
+venv
+*.db
+*.cfg
+dags/__pycache__
+main/keys
+main/others
+keys
