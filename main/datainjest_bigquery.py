@@ -38,7 +38,6 @@ yesterday = datetime.now().date() - timedelta(days=1)
 
 for folder in bucket_folders:
     bucketfolder = f"gs://dezoomcamp_project2025/{folder}{yesterday}/*/"
-    print(bucketfolder)
     df = spark.read.parquet(bucketfolder)
 
     df.write.format('bigquery') \
