@@ -32,13 +32,13 @@ for folder in folders('dezoomcamp_project2025','rawdata/'):
     folder_name = folder#.split('/')[1]
     bucket_folders.append(folder_name)
 
-print(bucket_folders)
 
 bigquery_output = 'stocksdata.stock-info'
 yesterday = datetime.now().date() - timedelta(days=1)
 
 for folder in bucket_folders:
-    bucketfolder = f"gs://dezoomcamp_project2025/{folder}/{yesterday}"
+    bucketfolder = f"gs://dezoomcamp_project2025/{folder}{yesterday}/*/"
+    print(bucketfolder)
     df = spark.read.parquet(bucketfolder)
 
     df.write.format('bigquery') \

@@ -87,6 +87,8 @@ for stock in stockslist:
     stockapi = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={stock}&interval=30min&apikey={apikey}"
     resp = requests.get(url=stockapi)
     data = formatdata(resp.json())
+    print(json.dumps(data, indent = 4))
+    print('done')
     df_stock = spark.createDataFrame(data, stock_schema)
     df_stock = df_stock.withColumn("DateTime", col("DateTime").cast("timestamp"))
     
