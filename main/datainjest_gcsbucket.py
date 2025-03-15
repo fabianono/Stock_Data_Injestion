@@ -77,22 +77,32 @@ with open(f"{main_dir}/others/top10stocks_symbol.csv", mode = 'r') as file:
     stockslist = [row[0] for row in readcsv]
 
 load_dotenv()
-apikey = os.getenv("stockapikey")
+apikey_evenweekday = os.getenv("stockapikey_evenweekday")
+apikey_oddweekday = os.getenv("stockapikey_oddweekday") 
 
 gcs_bucket = "gs://dezoomcamp_project2025/rawdata/"
 
 date_saved = datetime.now().date() - timedelta(days=1)
 
-for stock in stockslist:
-    stockapi = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={stock}&interval=30min&apikey={apikey}"
-    resp = requests.get(url=stockapi)
-    data = formatdata(resp.json())
-    print(json.dumps(data, indent = 4))
-    print('done')
-    df_stock = spark.createDataFrame(data, stock_schema)
-    df_stock = df_stock.withColumn("DateTime", col("DateTime").cast("timestamp"))
-    
-    location = f"{gcs_bucket}/{stock}/{date_saved}"
-    df_stock.coalesce(1).write.parquet(location, mode='overwrite')
+#Rotating between 2 API keys due to limit calls per day since the accounts are from the free tier
+if (date_saved.weekday())%2 == 0:
+    apikey = apikey_evenweekday
+else:
+    apikey = apikey_oddweekday
+
+if date_saved.weekday() != 5 or date_saved.weekday() != 6:
+    for stock in stockslist:
+        stockapi = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={stock}&interval=30min&apikey={apikey}"
+        resp = requests.get(url=stockapi)
+        data = formatdata(resp.json())
+        print(json.dumps(data, indent = 4))
+        print('done')
+        df_stock = spark.createDataFrame(data, stock_schema)
+        df_stock = df_stock.withColumn("DateTime", col("DateTime").cast("timestamp"))
+        
+        location = f"{gcs_bucket}/{stock}/{date_saved}"
+        df_stock.coalesce(1).write.parquet(location, mode='overwrite')
+else:
+    print("Yesterday was the weekend. Stock market was not open.")
 
 
