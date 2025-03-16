@@ -84,25 +84,29 @@ gcs_bucket = "gs://dezoomcamp_project2025/rawdata/"
 
 date_saved = datetime.now().date() - timedelta(days=1)
 
-#Rotating between 2 API keys due to limit calls per day since the accounts are from the free tier
+print(f"Day id: {date_saved.weekday()}")
+
+#Rotating between 2 API keys due to limit calls since the accounts are from the free tier
 if (date_saved.weekday())%2 == 0:
     apikey = apikey_evenweekday
 else:
     apikey = apikey_oddweekday
 
-if date_saved.weekday() != 5 or date_saved.weekday() != 6:
+#No data to run since stock market closed
+if date_saved.weekday() in [5,6]:
+    print("Yesterday was the weekend. Stock market was not open.")
+else:
     for stock in stockslist:
         stockapi = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={stock}&interval=30min&apikey={apikey}"
         resp = requests.get(url=stockapi)
         data = formatdata(resp.json())
         print(json.dumps(data, indent = 4))
-        print('done')
         df_stock = spark.createDataFrame(data, stock_schema)
         df_stock = df_stock.withColumn("DateTime", col("DateTime").cast("timestamp"))
         
         location = f"{gcs_bucket}/{stock}/{date_saved}"
+        print("Writing to bucket")
         df_stock.coalesce(1).write.parquet(location, mode='overwrite')
-else:
-    print("Yesterday was the weekend. Stock market was not open.")
-
+    
+    print("injestion ended")
 

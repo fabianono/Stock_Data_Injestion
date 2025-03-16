@@ -36,11 +36,15 @@ for folder in folders('dezoomcamp_project2025','rawdata/'):
 bigquery_output = 'stocksdata.stock-info'
 yesterday = datetime.now().date() - timedelta(days=1)
 
-for folder in bucket_folders:
-    bucketfolder = f"gs://dezoomcamp_project2025/{folder}{yesterday}/*/"
-    df = spark.read.parquet(bucketfolder)
 
-    df.write.format('bigquery') \
-        .option('table',bigquery_output) \
-        .mode('append') \
-        .save()
+if yesterday.weekday() == 5 or yesterday.weekday() == 6:
+    print("Yesterday was the weekend. Stock market was not open.")
+else:
+    for folder in bucket_folders:
+        bucketfolder = f"gs://dezoomcamp_project2025/{folder}{yesterday}/*/"
+        df = spark.read.parquet(bucketfolder)
+
+        df.write.format('bigquery') \
+            .option('table',bigquery_output) \
+            .mode('append') \
+            .save()
