@@ -72,7 +72,7 @@ stock_schema = StructType([
 ])
 
 
-with open(f"{main_dir}/others/top10stocks_symbol.csv", mode = 'r') as file:
+with open(f"{main_dir}/others/stocks_symbol.csv", mode = 'r') as file:
     readcsv = csv.reader(file)
     stockslist = [row[0] for row in readcsv]
 

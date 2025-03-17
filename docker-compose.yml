@@ -76,14 +76,13 @@ services:
     volumes:
       - ./main:/opt/airflow/main
       - ~/spark/jdk-11.0.2:/spark/jdk-11.0.2
-      - ./others/jars/gcs-connector-hadoop3-2.2.5.jar:/opt/airflow/main/others/jars/gcs-connector-hadoop3-2.2.5.jar
+      - ./others:/opt/airflow/main/others
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./keys/sa_adminadmin.json:/opt/airflow/main/keys/sa_adminadmin.json
       - ./requirements/docker_airflowscheduler_req.txt:/opt/airflow/requirements/docker_airflowscheduler_req.txt
       - ./scripts/airflowscheduler_startup.sh:/opt/airflow/scripts/airflowscheduler_startup.sh
       - ./.env:/opt/airflow/.env
-      - ./others/top10stocks_symbol.csv:/opt/airflow/main/others/top10stocks_symbol.csv
     depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
