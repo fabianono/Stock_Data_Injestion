@@ -37,7 +37,7 @@ bigquery_output = 'stocksdata.stock-info'
 yesterday = datetime.now().date() - timedelta(days=1)
 
 
-if yesterday.weekday() == 5 or yesterday.weekday() == 6:
+if yesterday.weekday() in [5,6]:
     print("Yesterday was the weekend. Stock market was not open.")
 else:
     for folder in bucket_folders:
