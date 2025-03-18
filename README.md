@@ -34,7 +34,7 @@ Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8
 
 
 ### How to run:
-1. Go to [alphavantage](https://www.alphavantage.co/documentation/) to generate your free keys. Generate at least 2 as there is a limit placed on api calls in the free tier. Add the keys to a .env file
+1. Go to [alphavantage](https://www.alphavantage.co/support/#api-key) to generate your free keys. Generate at least 2 as there is a limit placed on api calls in the free tier. Add the keys to a .env file
 2. Get a service account key from Google Cloud and place it as ./keys/sa_adminadmin.json. You need to give the service account these roles:       
     - ApiGateway Admin
     - BigQuery Admin
