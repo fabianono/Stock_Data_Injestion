@@ -5,7 +5,7 @@
 
 In this demo project:
 1. Data is obtained via a GET request from the TIME_SERIES_INTRADAY api which can be found [here](https://www.alphavantage.co/documentation/). Data is obtained via batch request.
-2. The script is scheduled by *airflow* to run an hour after the stock market closes, which is 8am where I am residing. Will injest the data at 30 mins interval.  
+2. The script is scheduled by *airflow* to run a few hours after the stock market closes. This allows the API some time for the data to be loaded. Will injest the data at 30 mins interval.  
 3. Data in transformed and then uploaded to a GCS bucket via spark.
 4. The next script then runs through *airflow* which uploads the day's data from the GCS bucket to BigQuery using Google's dataproc spark.
 5. Looker studio is used to extract data and provide some data visualization.
