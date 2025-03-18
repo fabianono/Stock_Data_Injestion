@@ -3,6 +3,8 @@
 
 **Just a note that this current project is running as a free tiered subscription to Google Cloud. Access will end on June 2 2025, so if the code is still working, it will stop working when the free tier access end.**
 
+Contact me: fabianbryantphng@gmail.com
+
 In this demo project:
 1. Data is obtained via a GET request from the TIME_SERIES_INTRADAY api which can be found [here](https://www.alphavantage.co/documentation/). Data is obtained via batch request.
 2. The script is scheduled by *airflow*(a scheduler that runs tasks) to run a few hours after the stock market closes. This allows the API some time for the data to be loaded. Will injest the data at 30 mins interval.  
@@ -49,3 +51,5 @@ Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8
     - Storage Object Creator
 4. In GCS, create a bucket with folder hierachy "dezoomcamp_project2025/rawdata/". Also create a big query database called "stocksdata". Also create  Dataproc cluster.
 5. Run docker compose up and you should be good to go!
+
+
