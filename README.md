@@ -16,5 +16,10 @@ In this demo project:
 - Terraform used to create a linux VM instance, GCS bucket and Dataproc clusters.
 - Sandboxing via a VM, docker compose, python venv.
 
-### Data Visualization:
 
+### Data Visualization:
+Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8-07a7-4c67-8051-f9412e5136f5)
+![alt text](Stock_Market_Report.jpg)
+
+- Provides a snap shot of how the top 10 stocks in the US market (provided in the csv [here](https://github.com/fabianono/Stock_Data_Injestion/blob/master/others/stocks_symbol.csv)) impacts the S&P500 (SPY) in a selected time period.
+- Also shows the traded volume of the top 10 US stocks in the selected time period.
