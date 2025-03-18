@@ -11,6 +11,7 @@ spark = SparkSession.builder \
 
 spark.conf.set('temporaryGcsBucket','dataproc-temp-us-central1-304858319620-9o2qyn2t')
 
+#get folders in gcs bucket
 def folders(bucket,prefix):
     client = storage.Client()
 
@@ -27,7 +28,7 @@ def folders(bucket,prefix):
     return folder_list
 
 bucket_folders = []
-#rawdata/AAPL/
+#format is rawdata/AAPL/
 for folder in folders('dezoomcamp_project2025','rawdata/'):
     folder_name = folder#.split('/')[1]
     bucket_folders.append(folder_name)

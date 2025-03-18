@@ -76,6 +76,7 @@ with open(f"{main_dir}/others/stocks_symbol.csv", mode = 'r') as file:
     readcsv = csv.reader(file)
     stockslist = [row[0] for row in readcsv]
 
+#keys stored in .env file
 load_dotenv()
 apikey_evenweekday = os.getenv("stockapikey_evenweekday")
 apikey_oddweekday = os.getenv("stockapikey_oddweekday") 
