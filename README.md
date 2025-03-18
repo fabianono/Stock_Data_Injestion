@@ -1,5 +1,5 @@
-# Stock Data Injestion DEMO
-### Basic stock data injestion for the top 10 stocks in the US stock market by market cap
+# Stock Data Injestion
+### A simple project that does basic stock data injestion for the top 10 stocks in the US stock market by market cap
 
 **Just a note that this current project is running as a free tiered subscription to Google Cloud. Access will end on June 2 2025, so if the code is still working, it will stop working when the free tier access end.**
 
