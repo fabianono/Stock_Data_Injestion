@@ -16,6 +16,13 @@ In this demo project:
 
 - Terraform used to create a linux VM instance, GCS bucket and Dataproc clusters.
 - Sandboxing via a VM, docker compose, python venv.
+- Techstack:
+    1. Airflow
+    2. Spark
+    3. Docker
+    4. Google Cloud
+    5. Terraform
+    6. Looker Studios
 
 
 ### Data Visualization:
@@ -24,3 +31,21 @@ Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8
 
 - Provides a snap shot of how the top 10 stocks in the US market (provided in the csv [here](https://github.com/fabianono/Stock_Data_Injestion/blob/master/others/stocks_symbol.csv)) impacts the S&P500 (SPY) in a selected time period.
 - Also shows the traded volume of the top 10 US stocks in the selected time period.
+
+
+### How to run:
+1. Go to [alphavantage](https://www.alphavantage.co/documentation/) to generate your free keys. Generate at least 2 as there is a limit placed on api calls in the free tier. Add the keys to a .env file
+2. Get a service account key from Google Cloud and place it as ./keys/sa_adminadmin.json. You need to give the service account these roles:       
+    - ApiGateway Admin
+    - BigQuery Admin
+    - BigQuery Data Editor
+    - BigQuery Job User
+    - Compute Admin
+    - Dataproc Administrator
+    - Service Account User
+    - Service Usage Admin
+    - Storage Admin
+    - Storage Object Admin
+    - Storage Object Creator
+4. In GCS, create a bucket with folder hierachy "dezoomcamp_project2025/rawdata/". Also create a big query database called "stocksdata". Also create  Dataproc cluster.
+5. Run docker compose up and you should be good to go!
