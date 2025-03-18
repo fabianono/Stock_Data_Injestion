@@ -12,7 +12,7 @@ default_argument = {
 with DAG(
     dag_id = 'stockapi',
     default_args=default_argument,
-    start_date=datetime(2025,3,12,8,0),
+    start_date=datetime(2025,3,17,12,0),
     schedule_interval='0 0 * * *',
     catchup=False,
     is_paused_upon_creation=False,
