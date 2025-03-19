@@ -33,6 +33,9 @@ Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8
 
 - Provides a snap shot of how the top 10 stocks in the US market (provided in the csv [here](https://github.com/fabianono/Stock_Data_Injestion/blob/master/others/stocks_symbol.csv)) impacts the S&P500 (SPY) in a selected time period.
 - Also shows the traded volume of the top 10 US stocks in the selected time period.
+- Some data analysis that can be done:
+    - The S&P500 follows a similar pattern to the top 10 stocks in the US stock market
+    - NVDA is the largest trading stock on the US market in the current period daily
 
 
 ### How to run:
