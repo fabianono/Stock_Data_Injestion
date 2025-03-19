@@ -52,7 +52,7 @@ Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8
     - Storage Admin
     - Storage Object Admin
     - Storage Object Creator
-4. In GCS, create a bucket with folder hierachy "dezoomcamp_project2025/rawdata/". Also create a big query database called "stocksdata". Also create  Dataproc cluster.
+4. Run the terraform file. A storage bucket and a bigquery database should be created. (You can set up this project in a VM as well by adding a branch and pulling it from github.)
 5. Run docker compose up and you should be good to go!
 
 
