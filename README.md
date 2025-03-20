@@ -53,6 +53,7 @@ Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8
     - Storage Object Admin
     - Storage Object Creator
 4. Run the terraform file. A storage bucket and a bigquery database should be created. (You can set up this project in a VM as well by adding a branch and pulling it from github.)
-5. Run docker compose up and you should be good to go!
+5. Replace "adminadmin@dezoomcamp-project2025.iam.gserviceaccount.com" in scripts/airflowscheduler_startup.sh with your own service account details to connect to Google Cloud from the *airflow* container.
+6. Run docker compose up and you should be good to go!
 
 
