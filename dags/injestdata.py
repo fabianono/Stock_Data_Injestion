@@ -1,18 +1,22 @@
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from datetime import datetime, timedelta
+import pendulum
+
+local_tz = pendulum.timezone('America/New_York')
 
 default_argument = {
     'owner': 'fabianbryant',
     'retries': 1,
-    'retry_delay': timedelta(minutes=1)
+    'retry_delay': timedelta(minutes=1),
+    'start_date': local_tz.datetime(2025, 3, 19, 0, 0, 0) #Start at 12mn US time
 }
 
 
 with DAG(
-    dag_id = 'stockapi',
+    dag_id = 'stock_data',
     default_args=default_argument,
-    start_date=datetime(2025,3,18,12,0),
+    description='Scheduling dags to ingest stock data',
     schedule_interval='0 0 * * *', #cron scheduler, so this is running every 24 hours
     catchup=False,
     is_paused_upon_creation=False,
