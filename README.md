@@ -1,7 +1,7 @@
 # Stock Data Injestion
 ### A simple project that does basic stock data injestion for the top 10 stocks in the US stock market by market cap
 
-**Just a note that this current project is running as a free tiered subscription to Google Cloud. Access will end on June 2 2025, so if the code is still working, it will stop working when the free tier access end.**
+**Just a note that this current project is running as a free tiered subscription to Google Cloud. Access will end on June 2 2025 (estimated), so if the code is still working, it will stop working when the free tier access end.**
 
 **Update: Server has been shut down as of 1 May 2025. You may run the code to injest your own data or contact me for help, thanks!**
 
