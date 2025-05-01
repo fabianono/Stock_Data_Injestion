@@ -3,6 +3,8 @@
 
 **Just a note that this current project is running as a free tiered subscription to Google Cloud. Access will end on June 2 2025, so if the code is still working, it will stop working when the free tier access end.**
 
+**Update: Server has been shut down as of 1 May 2025. You may run the code to injest your own data or contact me for help, thanks!**
+
 Contact me: fabianbryantphng@gmail.com
 
 In this demo project:
@@ -29,7 +31,7 @@ In this demo project:
 
 ### Data Visualization:
 Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8-07a7-4c67-8051-f9412e5136f5)
-![alt text](images/Stock_Market_Report.jpg)
+![alt text](images/Stock_Market_Report.jpg) *Server has been shut down, no more data being pulled from BigQuery*
 
 - Provides a snap shot of how the top 10 stocks in the US market (provided in the csv [here](https://github.com/fabianono/Stock_Data_Injestion/blob/master/others/stocks_symbol.csv)) impacts the S&P500 (SPY) in a selected time period.
 - Also shows the traded volume of the top 10 US stocks in the selected time period.
