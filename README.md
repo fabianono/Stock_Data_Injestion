@@ -30,7 +30,7 @@ In this demo project:
 
 
 ### Data Visualization:
-Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8-07a7-4c67-8051-f9412e5136f5) *Server has been shut down, no more data being pulled from BigQuery*
+Dashboard can be found [here](https://lookerstudio.google.com/reporting/ce71aea8-07a7-4c67-8051-f9412e5136f5). (*Server has been shut down, no more data being pulled from BigQuery*)
 ![alt text](images/Stock_Market_Report.jpg)
 
 - Provides a snap shot of how the top 10 stocks in the US market (provided in the csv [here](https://github.com/fabianono/Stock_Data_Injestion/blob/master/others/stocks_symbol.csv)) impacts the S&P500 (SPY) in a selected time period.
